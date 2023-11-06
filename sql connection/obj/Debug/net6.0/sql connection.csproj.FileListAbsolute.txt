@@ -1,0 +1,22 @@
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\sql connection.exe
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\sql connection.deps.json
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\sql connection.runtimeconfig.json
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\sql connection.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\sql connection.pdb
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.csproj.AssemblyReference.cache
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.AssemblyInfoInputs.cache
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.AssemblyInfo.cs
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.csproj.CoreCompileInputs.cache
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.csproj.CopyComplete
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\refint\sql connection.dll
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.pdb
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\sql connection.genruntimeconfig.cache
+C:\Users\Mehemmed\Desktop\BP206task\sql connection\sql connection\obj\Debug\net6.0\ref\sql connection.dll

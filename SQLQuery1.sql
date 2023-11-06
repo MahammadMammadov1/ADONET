@@ -1,0 +1,167 @@
+CREATE DATABASE Task
+USE Task
+
+CREATE TABLE Academies
+(
+ID INT PRIMARY KEY IDENTITY,
+Name NVARCHAR(200)
+)
+
+CREATE TABLE Groups
+(
+ID INT PRIMARY KEY IDENTITY,
+Name NVARCHAR(200),
+AcademyID INT FOREIGN KEY REFERENCES Academies(ID)
+)
+
+CREATE TABLE Students 
+(
+ID INT PRIMARY KEY IDENTITY,
+Name NVARCHAR(200),
+Surname NVARCHAR(200),
+Age INT,
+Adulthood bit,
+GroupID INT FOREIGN KEY REFERENCES Groups(ID)
+)
+
+CREATE TABLE DeletedStudents (
+Id INT,
+Name NVARCHAR(255) ,
+Surname NVARCHAR(255) ,
+GroupId INT FOREIGN KEY  REFERENCES Groups(Id)
+)
+
+CREATE TABLE DeletedGroups (
+Id INT,
+Name NVARCHAR(255) NOT NULL,
+AcademyId INT FOREIGN KEY REFERENCES Academies(Id)
+)
+
+
+INSERT INTO Academies VALUES
+('Code Academy'),
+('Tech Academy'),
+('Coders')
+
+INSERT INTO Groups VALUES
+('BB205',1),
+('BB206',1),
+('GG309',2),
+('GG309',2),
+('FF201',3),
+('FF202',3)
+
+INSERT INTO Students  VALUES
+('Mehemmed', 'Memmedov',19,1,1),
+('Remzi', 'Hesenov',19,1,1),
+('Kamil ','Veliyev',24,1,2),
+('Arzu', 'Eliyev',22,1,2),
+('hesen', 'eliyev',25,1,3),
+('iilkin', 'Memmedov',21,1,3)
+
+UPDATE Students
+set Adulthood = 1
+where Adulthood = 0
+
+
+
+
+
+CREATE VIEW VW_SHOW_ALL_ACADEMIES_DATA
+AS
+SELECT * FROM Academies
+
+SELECT * FROM VW_SHOW_ALL_ACADEMIES_DATA
+
+CREATE VIEW VW_SHOW_ALL_GROUPS_DATA
+AS
+SELECT * FROM Groups
+
+SELECT * FROM VW_SHOW_ALL_GROUPS_DATA
+
+CREATE VIEW VW_SHOW_ALL_Students_DATA
+AS
+SELECT * FROM Students
+
+SELECT * FROM VW_SHOW_ALL_Students_DATA
+
+CREATE PROCEDURE USP_SHOW_GROUP_BY_NAME (@name NVARCHAR(200))
+AS
+SELECT * FROM Groups
+WHERE Name = @name;
+
+
+EXEC USP_SHOW_GROUP_BY_NAME 'BB206'
+
+CREATE PROCEDURE USP_SHOW_STUDENTS_BY_AGE (@age INT)
+AS
+SELECT * FROM Students
+WHERE Age > @age
+
+EXEC USP_SHOW_STUDENTS_BY_AGE 22
+
+
+CREATE PROCEDURE USP_SHOW_STUDENTS_BY_SMALL_AGE (@age INT)
+AS
+SELECT * FROM Students
+WHERE Age < @age
+
+EXEC USP_SHOW_STUDENTS_BY_SMALL_AGE 22
+
+
+CREATE TRIGGER TRG_AFTER_DELETE
+ON Students
+AFTER DELETE 
+AS
+INSERT INTO DeletedStudents (Id, Name, Surname, GroupId)
+SELECT Id, Name, Surname, GroupId FROM deleted
+
+SELECT * FROM Students
+SELECT * FROM DeletedStudents
+
+DELETE FROM Students
+WHERE ID = 3
+
+CREATE TRIGGER TRG_AFTER_DELETE_GROUP
+ON Groups
+AFTER DELETE 
+AS
+DELETE FROM Students
+WHERE GroupID IN (SELECT Id FROM deleted);
+INSERT INTO DeletedGroups (Id, Name,AcademyId)
+SELECT Id, Name ,AcademyID FROM deleted
+
+DROP TRIGGER TRG_AFTER_DELETE_GROUP
+
+SELECT * FROM Groups
+SELECT * FROM DeletedGroups
+
+DELETE FROM Groups
+WHERE ID = 1
+
+CREATE TRIGGER TRG_UPDATE_AGE
+ON Students
+AFTER UPDATE
+AS
+UPDATE Students 
+SET Adulthood = 1
+FROM deleted 
+WHERE Students.Id = deleted.Id AND deleted.Age >= 18
+
+DROP TRIGGER TRG_UPDATE_AGE
+
+
+CREATE TRIGGER TRG_INSERT_AGE
+ON Students
+AFTER INSERT
+AS
+UPDATE Students 
+SET Adulthood = 1
+FROM deleted 
+WHERE Students.Id = deleted.Id AND deleted.Age >= 18
+
+DROP TRIGGER TRG_INSERT_AGE
+
+INSERT INTO Students VALUES
+('Ilham', 'Quliyev',21,0,3)
+SELECT * FROM Students
